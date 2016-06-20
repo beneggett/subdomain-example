@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # username:
+  # password:
+  pool: 5
+
+development:
+  <<: *default
+  database: subdomain_example_development
+
+test:
+  <<: *default
+  database: subdomain_example_test
+
+production:
+  <<: *default
+  database: subdomain_example_production
+  username: subdomain_example
+  password: <%= ENV['SUBDOMAIN_EXAMPLE_DATABASE_PASSWORD'] %>
